@@ -1,9 +1,10 @@
-package com.jiang.springname.controller;
+package com.jiang.getname.controller;
 
-import com.jiang.springname.model.User;
-import com.jiang.springname.utils.SignUtils;
-import jakarta.servlet.http.HttpServletRequest;
+import com.jiang.yaziapiclientsdk.model.User;
+import com.jiang.yaziapiclientsdk.utils.SignUtils;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 /***
  *服务端
@@ -21,19 +22,20 @@ public class NameController {
     }
 
     @PostMapping("/")
-    public String getNameByPost(String name){
+    public String getNameByPost(@RequestParam String name){
         return "post的方式得到name=>"+ name;
     }
 
 
     @PostMapping("/userGetName")
-    public String getNameByUser(User user, HttpServletRequest request){
+    public String getNameByUser(@RequestBody User user, HttpServletRequest request){ //以Json的格式提交
 
         String accessKey = request.getHeader("accessKey");
         String body = request.getHeader("body");
         String sign = request.getHeader("sign");
         String nonce = request.getHeader("nonce");
         String timestamp = request.getHeader("timestamp");
+        System.out.println("body:"+body);
 
         //校验随机数字段
         if (Long.parseLong(nonce) > 10000){

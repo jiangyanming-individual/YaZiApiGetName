@@ -14,6 +14,13 @@
         <spring-boot.version>2.6.13</spring-boot.version>
     </properties>
     <dependencies>
+
+        <dependency>
+            <groupId>com.jiang</groupId>
+            <artifactId>YaZiApiClient-sdk</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -24,6 +31,12 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
+        </dependency>
+        <!--		hutool-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.16</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
